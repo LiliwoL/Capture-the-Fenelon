@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+
+  05-ctf-vulnerable-archives:
+    image: 05-ctf-vulnerable-archives
+    container_name: 05-ctf-vulnerable-archives
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        FENELON_1: ${FENELON_1}
+        FENELON_2: ${FENELON_2}
+        FENELON_3: ${FENELON_3}
+        MOT_DE_PASSE: ${MOT_DE_PASSE}
+    ports:
+        - "8889:8889"

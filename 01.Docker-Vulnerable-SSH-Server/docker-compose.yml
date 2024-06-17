@@ -1,0 +1,21 @@
+version: "3.1"
+
+services:
+  01-ctf-openssh-server:
+    container_name: 01-ctf-openssh-server-server
+    build:
+      # Utilisation du Dockerfile présent dans le dossier
+      context: ./
+      args:
+        FENELON_1: ${FENELON_1}
+        FENELON_2: ${FENELON_2}
+        FENELON_3: ${FENELON_3}
+
+    volumes:
+      # Message de bienvenue affiché à la connexion
+      - ./banner-message.txt:/etc/motd
+      # Pour avoir accès aux logs
+      - ./logs:/var/log
+    ports:
+      - 2222:22
+    restart: unless-stopped
