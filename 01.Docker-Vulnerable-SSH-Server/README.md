@@ -33,6 +33,8 @@ selon la machine qui héberge | 2222
 
 ## Liste des utilisateurs existants
 
+> A modifier dans le fichier **.env**!
+
 User | Password
 -- | --
 user1 | user1

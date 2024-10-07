@@ -24,7 +24,8 @@ Nom | Difficulté | Description
 -- | -- | --
 [1. Serveur SSH vulnérable](#1-serveur-ssh-vulnérable) | Débutant | Tester la vulnérabilité du serveur SSH et proposer des solutions pour renforcer la sécurité du serveur SSH.
 [2. Prestashop vulnérable](#2-prestashop-vulnérable) | Débutant | Découvrir l'application utilisée pour le site. Tester (ou se rensigner) pour trouver les répertoires et l'accès back office. BruteForce pour se connecter sur la page d'administration.
-
+[5. Docker Vulnerable File Server](#5-docker-vulnerable-file-server) | Débutant | Un docker hébergeant des archives vulnérables. Chacune des 3 archives est protégée par un mot de passe. Cependant, les archives sont volontairement faiblement protégées et facilement crackables. Chacune des archives contient un Fenelon.
+[6. Docker Log Machine](#6-docker-log-machine) | Débutant | Une simple machine Linux dans laquelle l'etudiant doit chercher le fenelon dans les logs.
 
 ---
 

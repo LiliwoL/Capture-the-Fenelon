@@ -3,11 +3,11 @@ FROM caddy:latest
 
 
 # Mettre à jour les dépôts et installer les dépendances nécessaires
-RUN apk update && apk install -y \
+RUN apk update && apk add \
     sudo \
     zip \
     zsh \
-    && apk clean
+    nano
 
 
 # Créer un répertoire pour les fichiers
@@ -32,7 +32,7 @@ ARG MOT_DE_PASSE
 
 
 # Création de l'utilisateur sio avec le mot de passe fourni dans .env
-RUN useradd -rm -d /home/sio -s /usr/bin/zsh -g root -G sudo -u 1000 sio
+RUN adduser --disabled-password -h /home/sio -s /usr/bin/zsh -G root -u 1000 sio
 RUN  echo 'sio:${MOT_DE_PASSE}' | chpasswd
 
 
