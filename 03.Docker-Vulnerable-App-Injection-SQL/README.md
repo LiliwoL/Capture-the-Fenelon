@@ -52,6 +52,25 @@ Open web browser and visit:
 
 
 
+Propositions étudiants:
+
+fenelon'; SELECT * FROM users; --
+
+SELECT table_name FROM information_schema.tables WHERE table_schema = 'capturethefenelon
+
 
 Doivent le faire avec sqlmap
 Fournir le TP sqlmap
+
+https://www.advania.co.uk/insights/blog/mysql-sql-injection-practical-cheat-sheet/?lai_vid=yAN64pOwgSeOd&lai_sr=45-49&lai_sl=m
+
+
+Mettre à jour la base
+update users set first_name='chien', last_name='racheter', password='supérieur' where username='fenelon';
+
+select * from users where username = 'fenelon';
+
+
+Mise à jour 
+Faire un utilisateur dont les droits sont limités à du simple insert ou select, pas de update
+> Empêcher les update 
