@@ -1,17 +1,17 @@
 <?php
-$host = "03-ctf-injection-sql-mysql";
-$db_name = $_SERVER["MYSQL_DATABASE"];
-$db_username = $_SERVER["MYSQL_USER"];
-$db_password = $_SERVER["MYSQL_PASSWORD"];
+    $host = "03-ctf-injection-sql-mysql";
+    $db_name = $_SERVER["MYSQL_DATABASE"];
+    $db_username = $_SERVER["MYSQL_USER"];
+    $db_password = $_SERVER["MYSQL_PASSWORD"];
 
-$conn = new mysqli($host, $db_username, $db_password, $db_name);
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+    $conn = new mysqli($host, $db_username, $db_password, $db_name);
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
 ?>
 
 <?php
-if (!isset($_POST['s'])) {
+    if (!isset($_POST['s'])) {
 ?>
     <center>
         <form action="" method="post">
@@ -32,7 +32,7 @@ if (!isset($_POST['s'])) {
         </form>
     </center>
 <?php
-}
+    }
 ?>
 
 <?php
