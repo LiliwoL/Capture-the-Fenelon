@@ -1,10 +1,8 @@
-version: '3'
-
 services:
 
-  03-ctf-injection-sql-mysql:
-    image: 03-ctf-injection-sql-mysql
-    container_name: 03-ctf-injection-sql-mysql
+  03-docker-vulnerable-app-sqlinjection-mysql:
+    image: 03-docker-vulnerable-app-sqlinjection-mysql
+    container_name: 03-docker-vulnerable-app-sqlinjection-mysql
     restart: unless-stopped
     build:
       context: mysql
@@ -20,15 +18,15 @@ services:
     networks:
       - backend
 
-  03-ctf-injection-sql-php:
-    image: 03-ctf-injection-sql-php
-    container_name: 03-ctf-injection-sql-php
+  03-docker-vulnerable-app-sqlinjection-php:
+    image: 03-docker-vulnerable-app-sqlinjection-php
+    container_name: 03-docker-vulnerable-app-sqlinjection-php
     restart: unless-stopped
     build:
       context: php
       dockerfile: Dockerfile
     depends_on:
-      - 03-ctf-injection-sql-mysql
+      - 03-docker-vulnerable-app-sqlinjection-mysql
     environment:
       - MYSQL_PORT=${MYSQL_PORT}
       - MYSQL_USER=${MYSQL_USER}
@@ -39,16 +37,16 @@ services:
     networks:
       - backend
 
-  03-ctf-injection-sql-nginx:
-    image: 03-ctf-injection-sql-nginx
-    container_name: 03-ctf-injection-sql-nginx
+  03-docker-vulnerable-app-sqlinjection-nginx:
+    image: 03-docker-vulnerable-app-sqlinjection-nginx
+    container_name: 03-docker-vulnerable-app-sqlinjection-nginx
     restart: unless-stopped
     build:
       context: nginx
       dockerfile: Dockerfile
     depends_on:
-      - 03-ctf-injection-sql-mysql
-      - 03-ctf-injection-sql-php
+      - 03-docker-vulnerable-app-sqlinjection-mysql
+      - 03-docker-vulnerable-app-sqlinjection-php
     ports:
       - "8080:80"
     volumes:

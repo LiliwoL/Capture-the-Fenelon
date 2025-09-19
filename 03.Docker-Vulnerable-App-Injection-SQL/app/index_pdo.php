@@ -1,5 +1,5 @@
 <?php
-$host = "03-ctf-injection-sql-mysql";
+$host = "03-docker-vulnerable-app-sqlinjection-mysql";
 $db_name = $_SERVER["MYSQL_DATABASE"];
 $db_username = $_SERVER["MYSQL_USER"];
 $db_password = $_SERVER["MYSQL_PASSWORD"];

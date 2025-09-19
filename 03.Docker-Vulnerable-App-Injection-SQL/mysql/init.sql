@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `payroll`
+-- Database: `capturethefenelon`
 --
 
 -- --------------------------------------------------------
@@ -46,7 +46,12 @@ INSERT INTO `users` (`username`, `first_name`, `last_name`, `password`, `salary`
 ('montgomery_scott','Montgomery','Scott','ScottyDoesntKnow','1250'),
 ('hiraku_sulu','Hikaru','Sulu','parking-break-on','3500'),
 ('pavel_chekov','Pavel','Chekov','99victorvictor2','2500'),
-('fenelon', 'spectateur', 'bavette', 'savourons', '666'),
+
+-- Fenelon
+-- Phare du bout du monde en Argentine
+-- ///invinciblement.reformule.ficher
+('fenelon', 'invinciblement', 'reformule', 'ficher', '666'),
+
 ('jean_luc_picard','Jean-Luc','Picard','maketitso','75000'),
 ('william_ryker','William','Ryker','number1','50000'),
 ('data','Data','','c0mput3r','100000'),
@@ -132,3 +137,9 @@ INSERT INTO `users` (`username`, `first_name`, `last_name`, `password`, `salary`
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+-- Revoke Privileges on update to simple user: fenelon
+REVOKE ALL ON capturethefenelon.* FROM 'fenelon'@'%';
+
+-- Grant only SELECT privileges to user fenelon
+GRANT SELECT ON capturethefenelon.users TO 'fenelon'@'%';
