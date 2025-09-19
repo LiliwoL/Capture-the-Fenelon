@@ -1,6 +1,6 @@
 # Docker DirBuster
 
-Les fenelons sont stockés dans des répertoires masqués à la navigation masi trouvablesavec DirBuster.
+Les fenelons sont stockés dans des répertoires masqués à la navigation mais trouvables avec DirBuster.
 Les fenelons sont stockés dans des fichiers texte, des fichiers .sql, des images...
 
 ## Description
