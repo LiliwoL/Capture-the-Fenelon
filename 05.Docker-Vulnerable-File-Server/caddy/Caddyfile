@@ -1,4 +1,0 @@
-:8889 {
-    root * /srv
-    file_server browse
-}
