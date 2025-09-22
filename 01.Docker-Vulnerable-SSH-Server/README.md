@@ -74,8 +74,16 @@ sio | ...
 - Complexité des mots de passe des utilisateurs trop faible
 - Emplacement des **fenelon** dans le répertoire **home** des utilisateurs.
 
-# Propositions d'amélioration
+# Propositions d'amélioration pour sécuriser le serveur
 
 - Améliorer la complexité des mots de passe
 - Eviter de trop nombreuses tentatives
+- Augmenter le délai entre deux tentatives
 - Interdire les connexions par mot de passe
+
+# Propositions d'amélioration du brute force
+
+- Tester une ligne sur 2 (ou 3) avec un camarade
+- Un camarade lit le dictionnaire en partant de la fin, l'autre du début
+- Faire du multithreading
+  https://c0deman.wordpress.com/2014/05/22/multiple-ssh-login-python-paramiko-with-threading/
