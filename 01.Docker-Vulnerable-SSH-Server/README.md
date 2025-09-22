@@ -65,6 +65,7 @@ sio | ...
 3. On indique le nom des utilisateurs existants
 4. On les informe qu'ils doivent faire du BruteForce
 5. Un dictionnaire de mot de passe est fourni
+  https://github.com/tarraschk/richelieu/blob/master/french_passwords_top20000.txt
 
 ---
 
