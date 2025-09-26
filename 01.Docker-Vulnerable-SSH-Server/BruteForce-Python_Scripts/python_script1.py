@@ -12,6 +12,7 @@ pirate=False
 try:
 	# Connexion
 	client = paramiko.client.SSHClient()
+	# Set the policy to accept any host key
 	client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 	client.connect(host, username=username, password=password, port=port)
 	pirate=True
